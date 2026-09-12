@@ -1,8 +1,3 @@
-// Jenkinsfile
-// Requires: Kubernetes plugin configured with a cloud pointing at your cluster,
-// and this repo checked out so jenkins/pod-template.yaml is available at
-// pipeline-checkout time (Jenkins reads it via yamlFile before spinning up the agent).
-
 pipeline {
     agent {
         kubernetes {

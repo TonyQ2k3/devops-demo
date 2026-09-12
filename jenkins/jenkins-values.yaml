@@ -1,5 +1,6 @@
 controller:
-  serviceType: NodePort
+  agentListenerEnabled: true
+  agentListenerPort: 50000
 
   installPlugins:
     - kubernetes
