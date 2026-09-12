@@ -1,0 +1,27 @@
+# Node 22 pod template
+
+apiVersion: v1
+kind: Pod
+spec:
+  containers:
+    - name: node
+      image: node:22-alpine
+      command:
+        - sleep
+      args:
+        - 99d
+
+    - name: docker
+      image: docker:27-cli
+      command:
+        - sleep
+      args:
+        - 99d
+      volumeMounts:
+        - name: docker-sock
+          mountPath: /var/run/docker.sock
+
+  volumes:
+    - name: docker-sock
+      hostPath:
+        path: /var/run/docker.sock
