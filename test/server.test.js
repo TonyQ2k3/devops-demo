@@ -1,20 +1,26 @@
 const request = require('supertest');
-const app = require('../server');
+const os = require('os');
+const app = require('../app');
 
-describe('GET /', () => {
-  it('responds with 200 and a JSON message', async () => {
-    const res = await request(app).get('/');
-    expect(res.status).toBe(200);
-    expect(res.body).toHaveProperty('message', 'Hello from the Helm + Kubernetes demo app!');
-    expect(res.body).toHaveProperty('hostname');
-    expect(res.body).toHaveProperty('timestamp');
+describe('Express Server Endpoints', () => {
+  describe('GET /', () => {
+    it('should return 200 OK', async () => {
+      const response = await request(app).get('/');
+      expect(response.status).toBe(200);
+      expect(response.headers['content-type']).toMatch(/json/);
+      expect(response.body).toEqual({
+        message: 'Hello from NodeJS web app!',
+        hostname: os.hostname(),
+        timestamp: expect.any(String),
+      });
+    });
   });
-});
 
-describe('GET /healthz', () => {
-  it('responds with 200 and "ok"', async () => {
-    const res = await request(app).get('/healthz');
-    expect(res.status).toBe(200);
-    expect(res.text).toBe('ok');
+  describe('GET /healthz', () => {
+    it('should return 200 OK', async () => {
+      const response = await request(app).get('/healthz');
+      expect(response.status).toBe(200);
+      expect(response.text).toBe('ok');
+    });
   });
 });
