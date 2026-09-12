@@ -38,14 +38,6 @@ pipeline {
             }
         }
 
-        stage('Build') {
-            steps {
-                container('node') {
-                    sh 'npm run build'
-                }
-            }
-        }
-
         stage('Docker Build') {
             steps {
                 container('docker') {
