@@ -9,8 +9,6 @@ pipeline {
         REGISTRY       = 'docker.io/tonyq2k3'
         IMAGE_NAME     = "${REGISTRY}/demo-app"
         IMAGE_TAG      = "build${env.BUILD_NUMBER}-${env.GIT_COMMIT?.take(7) ?: 'local'}"
-        HELM_RELEASE   = 'concungdevops'
-        HELM_NAMESPACE = 'app'
         CHART_PATH     = 'helm/demo-app'
 
         GITOPS_REPO    = 'github.com/TonyQ2k3/devops-demo.git'
@@ -78,8 +76,8 @@ pipeline {
                     )]) {
                         sh '''
                             # Set Git Identity
-                            git config --global user.email "jenkins-bot@example.com"
-                            git config --global user.name "Jenkins CI"
+                            git config --global user.email "jenkins-bot@concung.com"
+                            git config --global user.name "jenkins-bot"
 
                             # Clone GitOps Repository
                             git clone https://${GIT_USER}:${GIT_TOKEN}@${GITOPS_REPO} gitops-dir

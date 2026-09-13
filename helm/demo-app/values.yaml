@@ -2,7 +2,7 @@ replicaCount: 2
 
 image:
   repository: tonyq2k3/demo-app
-  tag: "6-9d3f57e"
+  tag: "build8-635f1c5"
   pullPolicy: IfNotPresent
 
 service:
@@ -11,7 +11,7 @@ service:
   targetPort: 3000
 
 ingress:
-  enabled: false
+  enabled: true
   className: nginx
   host: demo-app.local
   path: /
@@ -30,7 +30,7 @@ probes:
   periodSeconds: 10
 
 autoscaling:
-  enabled: false
+  enabled: true
   minReplicas: 2
   maxReplicas: 5
   targetCPUUtilizationPercentage: 80
