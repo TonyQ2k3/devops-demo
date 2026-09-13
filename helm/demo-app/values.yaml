@@ -2,7 +2,7 @@ replicaCount: 2
 
 image:
   repository: tonyq2k3/demo-app
-  tag: "build7-635f1c5"
+  tag: "build8-635f1c5"
   pullPolicy: IfNotPresent
 
 service:
