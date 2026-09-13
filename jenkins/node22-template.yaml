@@ -21,6 +21,13 @@ spec:
         - name: docker-sock
           mountPath: /var/run/docker.sock
 
+    - name: git
+      image: alpine/git:v2.54.0
+      command:
+        - sleep
+      args:
+        - 99d
+
   volumes:
     - name: docker-sock
       hostPath:
