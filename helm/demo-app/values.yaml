@@ -2,7 +2,7 @@ replicaCount: 2
 
 image:
   repository: tonyq2k3/demo-app
-  tag: "build10-f20deb3"
+  tag: "build14-10d89bb"
   pullPolicy: IfNotPresent
 
 service:
