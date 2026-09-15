@@ -1,0 +1,22 @@
+# Prometheus Service monitor for Jenkins
+
+apiVersion: monitoring.coreos.com/v1
+kind: ServiceMonitor
+metadata:
+  name: jenkins
+  namespace: monitoring
+  labels:
+    release: monitoring
+spec:
+  namespaceSelector:
+    matchNames:
+      - jenkins
+
+  selector:
+    matchLabels:
+      app.kubernetes.io/name: jenkins
+
+  endpoints:
+    - port: http
+      path: /prometheus
+      interval: 15s

@@ -2,7 +2,7 @@ replicaCount: 2
 
 image:
   repository: tonyq2k3/demo-app
-  tag: "build8-635f1c5"
+  tag: "build14-10d89bb"
   pullPolicy: IfNotPresent
 
 service:
@@ -30,7 +30,7 @@ probes:
   periodSeconds: 10
 
 autoscaling:
-  enabled: true
+  enabled: false
   minReplicas: 2
   maxReplicas: 5
   targetCPUUtilizationPercentage: 80
